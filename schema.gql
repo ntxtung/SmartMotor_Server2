@@ -8,16 +8,50 @@ type UserType {
   password: String!
 }
 
+type DeviceType {
+  _id: ID!
+  clientId: String!
+  deviceNumber: String!
+  plateNumber: String!
+}
+
+type DeviceTrackType {
+  _id: ID!
+  deviceNumber: String!
+  lat: String!
+  lon: String!
+  battery: String!
+  createdDate: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Query {
   users: [UserType!]!
-  hello: String!
+  userByUsername(input: String!): UserType!
+  devices: [DeviceType!]!
+  devicesByClientId(input: String!): [DeviceType!]!
+  deviceByPlateNumber(input: String!): DeviceType!
+  deviceByDeviceNumber(input: String!): DeviceType!
+  deviceTracks: [DeviceTrackType!]!
+  deviceTrackByDeviceNumber(input: String!): [DeviceTrackType!]!
 }
 
 type Mutation {
   createUser(input: CreateUserInput!): UserType!
+  addNewDevice(input: NewDeviceInput!): DeviceType!
 }
 
 input CreateUserInput {
   username: String!
   password: String!
+}
+
+input NewDeviceInput {
+  clientId: String!
+  deviceNumber: String!
+  plateNumber: String!
 }

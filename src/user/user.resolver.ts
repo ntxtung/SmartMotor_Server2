@@ -15,13 +15,13 @@ export class UserResolver {
         return this.userService.findAll()
     }
 
+    @Query(() => UserType)
+    async userByUsername(@Args('input') username: String) : Promise<UserType>{
+        return this.userService.findOneByUsername(username);
+    }
+    
     @Mutation(() => UserType)
     async createUser(@Args('input') input: CreateUserInput) : Promise<UserType>{
         return this.userService.create(input);
-    }
-
-    @Query(() => String)
-    async hello() {
-        return 'hello'
     }
 }

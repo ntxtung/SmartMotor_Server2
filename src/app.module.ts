@@ -6,6 +6,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { DeviceModule } from './device/device.module';
+import { DeviceTrackModule } from './device-track/device-track.module';
 
 @Module({
   imports: [
@@ -15,7 +17,9 @@ import { AuthModule } from './auth/auth.module';
     }),
     MongooseModule.forRoot(`mongodb://${process.env.MONGO_USR}:${process.env.MONGO_PWD}@${process.env.MONGO_HOST}/${process.env.MONGO_DB}?authSource=admin&readPreference=primary`),
     UserModule,
-    AuthModule
+    DeviceModule,
+    DeviceTrackModule,
+    // AuthModule
   ],
   controllers: [AppController],
   providers: [AppService]
