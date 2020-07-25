@@ -28,7 +28,6 @@ export class DeviceTrackController {
       isFixed: data.isFixed,
       createdDate: new Date()
     }
-    console.log(newTrackData)
     this.deviceTrackService.create(newTrackData)
   }
 }
