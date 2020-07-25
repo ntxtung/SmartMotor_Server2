@@ -17,8 +17,28 @@ export const DeviceTrackSchema = new mongoose.Schema({
     type: String,
     required: "{battery} is required",
   },
+  gpsFixMode: {
+    type: String,
+    required: "{gpsFixMode} is required",
+  },
+  fixQuality: {
+    type: String,
+    required: "{fixQuality} is required",
+  },
+  satelitesTracked: {
+    type: String,
+    required: "{satelitesTracked} is required",
+  },
+  gpsSatesTotal: {
+    type: String,
+    required: "{gpsSatesTotal} is required",
+  },
+  isFixed: {
+    type: String,
+    required: "{isFixed} is required",
+  },
   createdDate: {
-      type: Date,
-      required: "{createDate} is required"
+    type: Date,
+    required: "{createDate} is required"
   }
 });

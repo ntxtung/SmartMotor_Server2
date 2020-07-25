@@ -7,16 +7,18 @@ import { DeviceTrackResolver } from './device-track.resolver';
 
 import { DeviceTrackSchema } from "./device-track.schema"
 import { DeviceTrackController } from './device-track.controller';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     MongooseModule.forFeature([{ name: 'DeviceTrack', schema: DeviceTrackSchema }]),
     ClientsModule.register([
       { 
         name: 'MOSQUITTO_MQTT', 
         transport: Transport.MQTT,
         options: {
-          url: 'mqtt://167.71.194.83:1883'
+          url: process.env.MQTT_URL
         }
       },
     ])

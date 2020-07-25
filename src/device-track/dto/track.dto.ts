@@ -13,5 +13,15 @@ export class DeviceTrackType {
   @Field()
   readonly battery: string;
   @Field()
+  readonly gpsFixMode: string;
+  @Field()
+  readonly fixQuality: string;
+  @Field()
+  readonly satelitesTracked: string;
+  @Field()
+  readonly gpsSatesTotal: string;
+  @Field()
+  readonly isFixed: string;
+  @Field()
   readonly createdDate: Date;
 }

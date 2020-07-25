@@ -21,6 +21,11 @@ type DeviceTrackType {
   lat: String!
   lon: String!
   battery: String!
+  gpsFixMode: String!
+  fixQuality: String!
+  satelitesTracked: String!
+  gpsSatesTotal: String!
+  isFixed: String!
   createdDate: DateTime!
 }
 
