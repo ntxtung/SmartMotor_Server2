@@ -5,6 +5,7 @@ WORKDIR /usr/xt/SmartMotor_server
 COPY . .
 
 RUN yarn install
+RUN yarn build
 
 EXPOSE 3000
 
