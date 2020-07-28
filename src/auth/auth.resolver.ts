@@ -11,7 +11,7 @@ export class AuthResolver {
     ) { }
 
     @Mutation(() => LoginSuccessType)
-    async login(@Args('input') input: ValidateUserInput) : Promise<LoginSuccessType>{
+    async login(@Args('input') input: ValidateUserInput) : Promise<any>{
         return this.authService.validateUser(input);
     }
 }
