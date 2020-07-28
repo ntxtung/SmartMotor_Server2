@@ -8,6 +8,10 @@ type UserType {
   password: String!
 }
 
+type LoginSuccessType {
+  token: String!
+}
+
 type DeviceType {
   _id: ID!
   clientId: String!
@@ -47,10 +51,16 @@ type Query {
 
 type Mutation {
   createUser(input: CreateUserInput!): UserType!
+  login(input: ValidateUserInput!): LoginSuccessType!
   addNewDevice(input: NewDeviceInput!): DeviceType!
 }
 
 input CreateUserInput {
+  username: String!
+  password: String!
+}
+
+input ValidateUserInput {
   username: String!
   password: String!
 }

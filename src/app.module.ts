@@ -13,13 +13,15 @@ import { DeviceTrackModule } from './device-track/device-track.module';
   imports: [
     ConfigModule.forRoot(),
     GraphQLModule.forRoot({
-      autoSchemaFile: 'schema.gql'
+      autoSchemaFile: 'schema.gql',
+      debug: process.env.DEBUG === "true",
+      playground: process.env.PLAYGROUND === "true"
     }),
     MongooseModule.forRoot(`mongodb://${process.env.MONGO_USR}:${process.env.MONGO_PWD}@${process.env.MONGO_HOST}/${process.env.MONGO_DB}?authSource=admin&readPreference=primary`),
     UserModule,
     DeviceModule,
     DeviceTrackModule,
-    // AuthModule
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService]
