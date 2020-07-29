@@ -18,14 +18,14 @@ export class DeviceTrackController {
     // console.log("In-coming:", data);
     var newTrackData : NewDeviceTrackInput = {
       deviceNumber: data.deviceNumber,
+      gpsFixMode: data.gpsFixMode,
+      fixQuality: data.fixQuality,
+      satelitesTracked: data.satelitesTracked,
+      gpsSatesTotal: data.gpsSatesTotal,
+      isFixed: data.isFixed,
       lat: data.lat,
       lon: data.lon,
       battery: data.batt,
-      fixQuality: data.fixQuality,
-      gpsFixMode: data.gpsFixMode,
-      gpsSatesTotal: data.gpsSatesTotal,
-      satelitesTracked: data.satelitesTracked,
-      isFixed: data.isFixed,
       createdDate: new Date()
     }
     this.deviceTrackService.create(newTrackData)

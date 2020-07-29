@@ -43,6 +43,7 @@ type Query {
   userByUsername(input: String!): UserType!
   devices: [DeviceType!]!
   devicesByClientId(input: String!): [DeviceType!]!
+  devicesByUsername(input: String!): [DeviceType!]!
   deviceByPlateNumber(input: String!): DeviceType!
   deviceByDeviceNumber(input: String!): DeviceType!
   deviceTracks: [DeviceTrackType!]!

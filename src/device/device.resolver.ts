@@ -20,6 +20,11 @@ export class DeviceResolver {
         return this.deviceService.findByClientId(clientId)
     }
 
+    @Query(() => [DeviceType])
+    async devicesByUsername(@Args('input') username: String) : Promise<DeviceType[]>{
+        return this.deviceService.findByUsername(username)
+    }
+
     @Query(() => DeviceType)
     async deviceByPlateNumber(@Args('input') plateNumber: String) : Promise<DeviceType>{
         return this.deviceService.findOneByPlateNumber(plateNumber)
